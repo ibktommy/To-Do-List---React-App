@@ -40,6 +40,12 @@ function App() {
     setAlert({ show, type, msg })
   }
 
+  // Function to Delete All Tasks
+  const deleteAllTasks = () => {
+    showAlert(true, 'danger', 'All Tasks Removed!')
+    setList([])
+  }
+
   return (
     <>
       <main className="container">
@@ -65,7 +71,7 @@ function App() {
 
         <div className="list-container">
           <List tasklist={list} />
-          <button className="clear-btn">Delete Tasks</button>
+          <button className="clear-btn" onClick={deleteAllTasks}>Delete Tasks</button>
         </div>
       </main>
     </>

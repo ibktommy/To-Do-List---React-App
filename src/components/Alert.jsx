@@ -7,7 +7,7 @@ const Alert = ({ msg, type, removeAlert }) => {
 			removeAlert();
 		}, 3000);
 
-		return () => clearTimeout();
+		return () => clearTimeout(timeout);
 	}, []);
 
 	return (
