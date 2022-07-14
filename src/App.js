@@ -4,7 +4,7 @@ import Alert from './components/Alert.jsx'
 
 function App() {
   // Setting App States
-  const [name, setName] = useState('')
+  const [task, setTask] = useState('')
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
@@ -15,9 +15,9 @@ function App() {
     e.preventDefault()
 
     // Setting conditions to monitor the input-field
-    if (!name) {
+    if (!task) {
       // Show Alert
-    } else if (name && isEditing) {
+    } else if (task && isEditing) {
       // Handle Edit
     } else {
       // Display Alert
@@ -25,11 +25,11 @@ function App() {
       // Add new Task to the List Component
       const newTask = {
         id: new Date().getTime().toString(),
-        title: name,
+        title: task,
       }
 
       setList([...list, newTask])
-      setName('')
+      setTask('')
     }
   }
 
@@ -44,8 +44,8 @@ function App() {
               type="text"
               className='task-input'
               placeholder='e.g task 1'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
             />
 
             <button className="submit-btn">
@@ -55,7 +55,7 @@ function App() {
         </form>
 
         <div className="list-container">
-          <List tasks={list} />
+          <List tasklist={list} />
           <button className="clear-btn">Delete Tasks</button>
         </div>
       </main>
