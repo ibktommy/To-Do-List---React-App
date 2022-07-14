@@ -8,7 +8,7 @@ function App() {
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: false, msg: '', type: '' })
+  const [alert, setAlert] = useState({ show: true, msg: 'Hello', type: 'success' })
 
   // Function to Handle Form Submit
   const handleSubmit = (e) => {
@@ -37,8 +37,10 @@ function App() {
     <>
       <main className="container">
         <form className="list-form" onSubmit={handleSubmit}>
-          {alert.show && <Alert />}
+          {alert.show && <Alert {...alert} />}
+
           <h3>To-Do List</h3>
+
           <div className="form-control">
             <input
               type="text"

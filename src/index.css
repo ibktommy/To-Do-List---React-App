@@ -36,7 +36,7 @@ button {
   border-radius: .5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 2.5rem;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -90,6 +90,12 @@ button {
   align-items: center;
 }
 
+.task-title {
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  letter-spacing: .1rem;
+}
+
 .task-btn {
   display: flex;
   gap: 2rem;
@@ -109,3 +115,4 @@ button {
   cursor: pointer;
   letter-spacing: .1rem;
 }
+

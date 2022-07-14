@@ -1,7 +1,11 @@
 import React from "react";
 
-const Alert = () => {
-	return <div>Alert Component</div>;
+const Alert = ({ msg, type }) => {
+	return (
+		<>
+			<p className={`alert alert-${type}`}>{msg}</p>
+		</>
+	);
 };
 
 export default Alert;
