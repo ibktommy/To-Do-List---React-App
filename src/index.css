@@ -15,4 +15,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 1.6;
+  font-size: 1.5rem;
+}
+
+.container {
+  box-shadow: .1rem .1rem .5rem rgba(185, 184, 184, 0.5), -.1rem .1rem .5rem rgba(255, 255, 255, .5);
+  padding: 1.5rem;
+  border-radius: .5rem;
 }
