@@ -13,6 +13,24 @@ function App() {
   // Function to Handle Form Submit
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // Setting conditions to monitor the input-field
+    if (!name) {
+      // Show Alert
+    } else if (name && isEditing) {
+      // Handle Edit
+    } else {
+      // Display Alert
+
+      // Add new Task to the List Component
+      const newTask = {
+        id: new Date().getTime().toString(),
+        title: name,
+      }
+
+      setList([...list, newTask])
+      setName('')
+    }
   }
 
   return (
@@ -37,7 +55,7 @@ function App() {
         </form>
 
         <div className="list-container">
-          <List />
+          <List tasks={list} />
           <button className="clear-btn">Delete Tasks</button>
         </div>
       </main>
