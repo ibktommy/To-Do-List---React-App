@@ -8,7 +8,7 @@ function App() {
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: true, msg: 'Hello', type: 'success' })
+  const [alert, setAlert] = useState({ show: true, msg: 'Hello', type: 'danger' })
 
   // Function to Handle Form Submit
   const handleSubmit = (e) => {
