@@ -8,7 +8,7 @@ function App() {
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: true, msg: 'Hello', type: 'danger' })
+  const [alert, setAlert] = useState({ show: false, msg: 'Hello', type: '' })
 
   // Function to Handle Form Submit
   const handleSubmit = (e) => {
@@ -17,6 +17,7 @@ function App() {
     // Setting conditions to monitor the input-field
     if (!task) {
       // Show Alert
+      showAlert(true, 'danger', 'You Need to Input A Task!')
     } else if (task && isEditing) {
       // Handle Edit
     } else {
@@ -29,8 +30,14 @@ function App() {
       }
 
       setList([...list, newTask])
+      showAlert(true, 'success', 'Task Added!')
       setTask('')
     }
+  }
+
+  // Function to Show Alert
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg })
   }
 
   return (
