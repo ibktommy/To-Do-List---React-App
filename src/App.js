@@ -44,7 +44,7 @@ function App() {
     <>
       <main className="container">
         <form className="list-form" onSubmit={handleSubmit}>
-          {alert.show && <Alert {...alert} />}
+          {alert.show && <Alert {...alert} removeAlert={showAlert} />}
 
           <h3>To-Do List</h3>
 
