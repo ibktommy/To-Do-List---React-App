@@ -20,8 +20,24 @@ function App() {
       showAlert(true, 'danger', 'You Need to Input A Task!')
     } else if (task && isEditing) {
       // Handle Edit
+      setList(
+        list.map((tasklist) => {
+          if (tasklist.id === editID) {
+            return { ...tasklist, title: task }
+          }
+
+          return tasklist
+        })
+      )
+
+      setTask('')
+      setEditID(null)
+      setIsEditing(false)
+      showAlert(true, 'success', "Task Edited and Added!")
+
     } else {
       // Display Alert
+      showAlert(true, 'success', 'Task Added!')
 
       // Add new Task to the List Component
       const newTask = {
@@ -30,7 +46,6 @@ function App() {
       }
 
       setList([...list, newTask])
-      showAlert(true, 'success', 'Task Added!')
       setTask('')
     }
   }
