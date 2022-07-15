@@ -46,6 +46,11 @@ function App() {
     setList([])
   }
 
+  // Function to Delete a Single Task
+  const deleteTask = (id) => {
+    setList(list.filter((task) => task.id !== id))
+  }
+
   return (
     <>
       <main className="container">
@@ -70,7 +75,7 @@ function App() {
         </form>
 
         <div className="list-container">
-          <List tasklist={list} />
+          <List tasklist={list} deleteTask={deleteTask}/>
           <button className="clear-btn" onClick={deleteAllTasks}>Delete Tasks</button>
         </div>
       </main>
