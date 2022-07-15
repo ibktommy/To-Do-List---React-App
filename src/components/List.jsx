@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const List = ({ tasklist, deleteTask }) => {
+const List = ({ tasklist, deleteTask, editTask }) => {
 	return (
 		<>
 			{tasklist.map(({ id, title }) => (
@@ -9,7 +9,7 @@ const List = ({ tasklist, deleteTask }) => {
 					<h4 className="task-title">{title}</h4>
 
 					<div className="task-btn">
-						<button type="submit">
+						<button type="submit" onClick={() => editTask(id)}>
 							<FaEdit />
 						</button>
 						<button type="submit" onClick={() => deleteTask(id, title)}>

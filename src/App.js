@@ -52,6 +52,14 @@ function App() {
     setList(list.filter((task) => task.id !== id))
   }
 
+  // Function to Edit a selected Task
+  const editTask = (id) => {
+    const specificTask = list.find((task) => task.id === id)
+    setIsEditing(true)
+    setEditID(id)
+    setTask(specificTask.title)
+  }
+
   return (
     <>
       <main className="container">
@@ -76,7 +84,7 @@ function App() {
         </form>
 
         <div className="list-container">
-          <List tasklist={list} deleteTask={deleteTask}/>
+          <List tasklist={list} deleteTask={deleteTask} editTask={editTask} />
           <button className="clear-btn" onClick={deleteAllTasks}>Delete Tasks</button>
         </div>
       </main>
