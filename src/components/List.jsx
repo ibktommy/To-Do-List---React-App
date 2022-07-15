@@ -12,7 +12,7 @@ const List = ({ tasklist, deleteTask }) => {
 						<button type="submit">
 							<FaEdit />
 						</button>
-						<button type="submit" onClick={() => deleteTask(id)}>
+						<button type="submit" onClick={() => deleteTask(id, title)}>
 							<FaTrash />
 						</button>
 					</div>

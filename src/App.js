@@ -47,7 +47,8 @@ function App() {
   }
 
   // Function to Delete a Single Task
-  const deleteTask = (id) => {
+  const deleteTask = (id, title) => {
+    showAlert(true, 'less-danger', `${title} 'task' Removed!`)
     setList(list.filter((task) => task.id !== id))
   }
 
@@ -55,7 +56,7 @@ function App() {
     <>
       <main className="container">
         <form className="list-form" onSubmit={handleSubmit}>
-          {alert.show && <Alert {...alert} removeAlert={showAlert} />}
+          {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
 
           <h3>To-Do List</h3>
 

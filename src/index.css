@@ -130,3 +130,6 @@ button {
 .alert-danger {
   background: rgba(156, 31, 0, 0.829);
 }
+.alert-less-danger {
+  background: rgba(252, 105, 68, 0.829);
+}
