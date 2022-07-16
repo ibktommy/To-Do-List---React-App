@@ -2,10 +2,20 @@ import React, { useState, useEffect } from 'react'
 import List from './components/List.jsx'
 import Alert from './components/Alert.jsx'
 
+// Getting List Array from Local Storage and setting it to List-State
+const getLocalStorage = () => {
+  let taskArray = localStorage.getItem('list')
+  if (taskArray) {
+    return JSON.parse(localStorage.getItem('list'))
+  } else {
+    return []
+  }
+}
+
 function App() {
   // Setting App States
   const [task, setTask] = useState('')
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage)
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: 'Hello', type: '' })
