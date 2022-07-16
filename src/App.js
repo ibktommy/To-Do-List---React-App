@@ -10,6 +10,7 @@ function App() {
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: 'Hello', type: '' })
 
+
   // Function to Handle Form Submit
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -74,6 +75,11 @@ function App() {
     setEditID(id)
     setTask(specificTask.title)
   }
+
+  // useEffect Function to Save List Array to LocalStorage
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list))
+  }, [list])
 
   return (
     <>
