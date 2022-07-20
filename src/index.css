@@ -80,6 +80,10 @@ button {
   letter-spacing: .1rem;
 }
 
+.submit-btn:focus {
+  background: #000;
+}
+
 .list-container {
   width: 100%;
 }

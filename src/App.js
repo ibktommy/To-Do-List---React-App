@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import List from './components/List.jsx'
 import Alert from './components/Alert.jsx'
+import { isContentEditable } from '@testing-library/user-event/dist/utils/index.js'
 
 // Getting List Array from Local Storage and setting it to List-State
 const getLocalStorage = () => {
@@ -18,7 +19,9 @@ function App() {
   const [list, setList] = useState(getLocalStorage)
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: false, msg: 'Hello', type: '' })
+  const [alert, setAlert] = useState({ show: false, msg: '', type: '' })
+
+  const inputRef = useRef(null)
 
 
   // Function to Handle Form Submit
@@ -29,6 +32,7 @@ function App() {
     if (!task) {
       // Show Alert
       showAlert(true, 'danger', 'You Need to Input A Task!')
+
     } else if (task && isEditing) {
       // Handle Edit
       setList(
@@ -68,6 +72,7 @@ function App() {
 
   // Function to Delete All Tasks
   const deleteAllTasks = () => {
+
     showAlert(true, 'danger', 'All Tasks Removed!')
     setList([])
   }
@@ -84,7 +89,10 @@ function App() {
     setIsEditing(true)
     setEditID(id)
     setTask(specificTask.title)
+    inputRef.current.focus()
   }
+
+
 
   // useEffect Function to Save List Array to LocalStorage
   useEffect(() => {
@@ -106,6 +114,7 @@ function App() {
               placeholder='e.g task 1'
               value={task}
               onChange={(e) => setTask(e.target.value)}
+              ref={inputRef}
             />
 
             <button className="submit-btn">
